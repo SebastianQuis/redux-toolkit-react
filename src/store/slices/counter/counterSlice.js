@@ -14,11 +14,21 @@ export const counterSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.counter += 1;
+
+      // lo que realmente se hace por detrás es:
+      // return {
+      //   ...state,
+      //   counter: state.counter +1
+      // }
     },
     decrement: (state) => {
+      if (state.counter < 1) {
+        return;
+      }
       state.counter -= 1;
     },
     incrementByAmount: (state, action) => {
+      // el payload puede ser una variable cualquiera (objeto, bool, etc..)
       state.counter += action.payload;
     },
   },

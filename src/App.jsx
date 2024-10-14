@@ -3,12 +3,16 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "./store/slices/counter/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "./store/slices/counter/counterSlice";
 
 function App() {
   // const [count, setCount] = useState(0);
 
-  const count = useSelector((state) => state.counter.counter);
+  const { counter } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
   return (
@@ -31,9 +35,10 @@ function App() {
         }}
       >
         <button onClick={() => dispatch(decrement())}>- 1</button>
-        <p>{count}</p>
+        <p>{counter}</p>
         <button onClick={() => dispatch(increment())}>+ 1</button>
       </div>
+      <button onClick={() => dispatch(incrementByAmount(5))}>+ 5</button>
     </>
   );
 }

@@ -5,12 +5,14 @@ import "./index.css";
 
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
+import { PokemonApp } from "./PokemonApp.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* TODO - IMPORTANDO LA CONFIGURACION DEL STORE GLOBAL */}
     <Provider store={store}>
-      <App />
+      {/* <App /> */}
+      <PokemonApp />
     </Provider>
   </React.StrictMode>
 );
